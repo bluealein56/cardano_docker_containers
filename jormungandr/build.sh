@@ -1,3 +1,4 @@
-docker login registry.gitlab.com
-docker build -t registry.gitlab.com/viper-staking/docker-containers/jormungandr:latest .
-docker push registry.gitlab.com/viper-staking/docker-containers/jormungandr:latest
+docker login
+docker build -t jormungandr:latest .
+docker tag jormungandr:latest bluealein56/jormungandr:latest
+docker push bluealein56/jormungandr:latest
