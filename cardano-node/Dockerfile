@@ -89,6 +89,7 @@ COPY entrypoint.sh /usr/local/bin/
 # This needs to be mounted to a host volume on container run.
 USER lovelace
 RUN mkdir ${HOME}/cardano-node/
+RUN mkdir ${HOME}/config/
 
 # Clone the cardano-tools repo
 RUN python3 -m pip install cardano-tools
