@@ -20,7 +20,7 @@ ARG GROUPID="1024"
 RUN groupadd -g $GROUPID -r $USERNAME \
  && useradd --no-log-init -r --gid $GROUPID -u $USERID $USERNAME \
  && mkdir /home/$USERNAME
-COPY ./shared-terminal-settings/dotfiles /home/${USERNAME}/dotfiles
+#COPY ./shared-terminal-settings/dotfiles /home/${USERNAME}/dotfiles
 COPY ./zshrc /home/${USERNAME}/.zshrc
 RUN chown -R ${USERNAME}:${USERNAME} /home/${USERNAME} \
  && chown -R ${USERNAME}:${USERNAME} /usr/local \
@@ -33,7 +33,7 @@ RUN sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/t
  && ln -s /home/${USERNAME}/dotfiles/tmux-shared /home/${USERNAME}/.tmux.conf \
  && ln -s /home/${USERNAME}/dotfiles/vimrc-shared /home/${USERNAME}/.vimrc \
  && mkdir -p /home/${USERNAME}/.vim/colors \
- && cp /home/${USERNAME}/dotfiles/monokai.vim /home/${USERNAME}/.vim/colors \
+# && cp /home/${USERNAME}/dotfiles/monokai.vim /home/${USERNAME}/.vim/colors \
  && git clone https://github.com/scrooloose/nerdtree.git /home/${USERNAME}/.vim/bundle/nerdtree \
  && npm install -g spaceship-prompt \
  && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm \
